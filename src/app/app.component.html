@@ -24,7 +24,8 @@
       </tr>
       <tr>
         <td>{{ nombre }}</td>
-        <td> slice:3 </td> <!-- corta o elimina la 3 primeras secciones -->
+        <td> slice:3 </td>
+        <!-- corta o elimina la 3 primeras secciones -->
         <td>{{ nombre | slice:3 }}</td>
       </tr>
       <tr>
@@ -52,6 +53,91 @@
         <td> number:'1.0-2' </td>
         <td>{{ PI | number:'1.0-2' }}</td>
       </tr>
+      <tr>
+        <td>{{ a }}</td>
+        <td> percent </td>
+        <td>{{ a | percent }}</td>
+      </tr>
+      <tr>
+        <td>{{ a }}</td>
+        <td> percent:'2.2-2' </td>
+        <td>{{ a | percent:'2.2-2' }}</td>
+      </tr>
+      <tr>
+        <td>{{ salario }}</td>
+        <td> currency </td>
+        <td>{{ salario | currency }}</td>
+      </tr>
+      <tr>
+        <td>{{ salario }}</td>
+        <td> currency:'EUR' </td>
+        <td>{{ salario | currency:'EUR' }}</td>
+      </tr>
+      <tr>
+        <td>{{ salario }}</td>
+        <td> currency:'EUR':'code' </td>
+        <td>{{ salario | currency:'EUR':'code' }}</td>
+      </tr>
+      <tr>
+        <td>{{ salario }}</td>
+        <td> currency:'EUR':'code':'4.0-0' </td>
+        <td>{{ salario | currency:'EUR':'code':'4.0-0' }}</td>
+      </tr>
+      <tr>
+        <td>{{ salario }}</td>
+        <td> currency:'EUR':'symbol':'4.0-0' </td>
+        <td>{{ salario | currency:'EUR':'symbol':'4.0-0' }}</td>
+      </tr>
+      <tr>
+        <td>{{ salario }}</td>
+        <td> number:'.2-2' </td>
+        <td>{{ salario | number:'.2-2' }}</td>
+      </tr>
+      <tr>
+        <td>{{ valorDePromesa }}</td>
+        <td> </td>
+        <td>{{ valorDePromesa }}</td>
+      </tr>
+      <tr>
+        <td>{{ valorDePromesa }}</td>
+        <td> async </td>
+        <td>{{ valorDePromesa | async }}</td>
+      </tr>
+      <!-- Para trabajar con fecha local realizar los cambios en app.module.ts -->
+      <tr>
+        <td>{{ fecha }}</td>
+        <td> date </td>
+        <td>{{ fecha | date }}</td>
+      </tr>
+      <tr>
+        <td>{{ fecha }}</td>
+        <td> date:'medium' </td>
+        <td>{{ fecha | date:'medium' }}</td>
+      </tr>
+      <tr>
+        <td>{{ fecha }}</td>
+        <td> date:'MMMM - dd' </td>
+        <td>{{ fecha | date:'MMMM - dd' }}</td>
+      </tr>
+      <tr>
+        <td>{{ nombre2 }}</td>
+        <td> capitalizado </td>
+        <td>{{ nombre2 | capitalizado }}</td>
+      </tr>
+      <tr>
+        <td>{{ nombre2 }}</td>
+        <td> capitalizado:false </td>
+        <td>{{ nombre2 | capitalizado:false }}</td>
+      </tr>
+      <tr>
+        <td>{{ nombre }}</td>
+        <td>
+          contrasena:{{ activar }}
+          <br>
+          <button (click)="activar = !activar" type="button" class="btn btn-outline-primary">Activar/Desactivar</button>
+        </td>
+        <td>{{ nombre | contrasena:activar }}</td>
+      </tr>
     </tbody>
   </table>
 
@@ -60,4 +146,17 @@
     <li *ngFor="let item of arreglo | slice:5:20">{{ item }}</li>
   </ul>
 
+  <h4>JSON</h4> {{ heroe }}
+  <br><br> {{ heroe | json }}
+  <br><br>
+  <pre>
+    {{ heroe | json }}
+  </pre>
+  <br><br>
+
+  <h4>Youtuve <small>video</small></h4>
+  <hr>
+  <iframe width="560" height="315" [src]="video | domseguro:'https://www.youtube.com/embed/'" allowfullscreen></iframe>
+
 </div>
+<br><br><br>
